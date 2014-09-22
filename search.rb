@@ -10,19 +10,11 @@ client = Twitter::REST::Client.new do |config|
 	config.access_token_secret = key["acc_sec"]
 end
 
-=begin
-client.search("nowplaying", :rpp => 10, :result_type => "recent").each do |status|
-  puts "#{status.text}"
-end
-=end
-
-word = "nowplayng" 
+word = "nowplaying" 
  
 results = client.search(word, :count => 10, :result_type => "recent")
   
 results.attrs[:statuses].each do |tweet|
-  puts Time.parse(tweet[:created_at])
-  puts tweet[:id]
   puts "@" + tweet[:user][:screen_name]
   puts tweet[:text]
   puts
