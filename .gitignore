@@ -1,2 +1,4 @@
 conf.yaml
 *txt
+/vendor/
+/.bundle/
